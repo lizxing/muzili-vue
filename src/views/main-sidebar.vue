@@ -1,6 +1,12 @@
 <template>
   <aside class="site-sidebar" :class="'site-sidebar--' + sidebarLayoutSkin">
     <div class="site-sidebar__inner">
+      <div class="site-navbar__header" :class="'site-navbar__header--' + sidebarLayoutSkin">
+        <h1 class="site-navbar__brand" @click="$router.push({ name: 'home' })">
+          <a class="site-navbar__brand-lg" href="javascript:;">Muzili 开发平台</a>
+          <a class="site-navbar__brand-mini" href="javascript:;">Mzl</a>
+        </h1>
+      </div>
       <el-menu
         :default-active="menuActiveName || 'home'"
         :collapse="sidebarFold"
@@ -10,20 +16,6 @@
           <icon-svg name="shouye" class="site-sidebar__menu-icon"></icon-svg>
           <span slot="title">首页</span>
         </el-menu-item>
-<!--        <el-submenu index="demo">-->
-<!--          <template slot="title">-->
-<!--            <icon-svg name="shoucang" class="site-sidebar__menu-icon"></icon-svg>-->
-<!--            <span>demo</span>-->
-<!--          </template>-->
-<!--          <el-menu-item index="demo-echarts" @click="$router.push({ name: 'demo-echarts' })">-->
-<!--            <icon-svg name="tubiao" class="site-sidebar__menu-icon"></icon-svg>-->
-<!--            <span slot="title">echarts</span>-->
-<!--          </el-menu-item>-->
-<!--          <el-menu-item index="demo-ueditor" @click="$router.push({ name: 'demo-ueditor' })">-->
-<!--            <icon-svg name="editor" class="site-sidebar__menu-icon"></icon-svg>-->
-<!--            <span slot="title">ueditor</span>-->
-<!--          </el-menu-item>-->
-<!--        </el-submenu>-->
         <sub-menu
           v-for="menu in menuList"
           :key="menu.menuId"

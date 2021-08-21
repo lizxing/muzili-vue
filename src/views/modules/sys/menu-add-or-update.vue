@@ -61,12 +61,12 @@
             </el-popover>
             <el-input v-model="dataForm.icon" v-popover:iconListPopover :readonly="true" placeholder="菜单图标名称" class="icon-list__input"></el-input>
           </el-col>
-          <el-col :span="2" class="icon-list__tips">
-            <el-tooltip placement="top" effect="light">
-              <div slot="content">全站推荐使用SVG Sprite, 详细请参考:<a href="//github.com/daxiongYang/renren-fast-vue/blob/master/src/icons/index.js" target="_blank">icons/index.js</a>描述</div>
-              <i class="el-icon-warning"></i>
-            </el-tooltip>
-          </el-col>
+<!--          <el-col :span="2" class="icon-list__tips">-->
+<!--            <el-tooltip placement="top" effect="light">-->
+<!--              <div slot="content">全站推荐使用SVG Sprite, 详细请参考:<a href="//github.com/daxiongYang/renren-fast-vue/blob/master/src/icons/index.js" target="_blank">icons/index.js</a>描述</div>-->
+<!--              <i class="el-icon-warning"></i>-->
+<!--            </el-tooltip>-->
+<!--          </el-col>-->
         </el-row>
       </el-form-item>
     </el-form>

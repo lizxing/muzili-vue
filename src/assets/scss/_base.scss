@@ -63,6 +63,7 @@ img {
 .site-wrapper {
   position: relative;
   min-width: 1180px;
+  background: #f0f2f5;
 }
 
 
@@ -110,7 +111,9 @@ img {
 .site-sidebar__menu-icon,
 .site-content__wrapper,
 .site-content--tabs > .el-tabs .el-tabs__header {
-  transition: inline-block .3s, left .3s, width .3s, margin-left .3s, font-size .3s;
+  //transition: inline-block .3s, left .3s, width .3s, margin-left .3s, font-size .3s;
+  //transition: inline-block .5s, left .5s, width .5s, margin-left .5s, font-size .5s;
+  transition: inline-block 1s, left 1s, width 1s, margin-left 1s, font-size 1s;
 }
 
 
@@ -121,15 +124,18 @@ img {
   top: 0;
   right: 0;
   left: 0;
-  z-index: 1030;
-  height: 50px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, .08);
-  background-color: $navbar--background-color;
+  z-index: 900;
+  height: 60px;
+  background-color: $navbar--background-color-inverse;
+  .site-navbar__body {
+    background-color: transparent;
+  }
 
   &--inverse {
-    .site-navbar__body {
-      background-color: transparent;
-    }
+    background-color: $navbar--background-color;
+    //.site-navbar__body {
+    //  background-color: transparent;
+    //}
     .el-menu {
       > .el-menu-item,
       > .el-submenu > .el-submenu__title {
@@ -157,19 +163,25 @@ img {
 
   &__header {
     position: relative;
-    float: left;
+    //float: left;
     width: 230px;
-    height: 50px;
+    height: 60px;
     overflow: hidden;
+    background: $navbar--background-color;
+
+    &--dark {
+      background: $sidebar--background-color-dark;
+    }
   }
   &__brand {
     display: table-cell;
     vertical-align: middle;
     width: 230px;
-    height: 50px;
+    height: 60px;
     margin: 0;
-    line-height: 50px;
-    font-size: 20px;
+    line-height: 60px;
+    font-size: 16px;
+    font-weight: 400;
     text-align: center;
     text-transform: uppercase;
     white-space: nowrap;
@@ -228,8 +240,8 @@ img {
     }
     .el-menu-item,
     .el-submenu > .el-submenu__title {
-      height: 50px;
-      line-height: 50px;
+      height: 60px;
+      line-height: 60px;
     }
     .el-submenu > .el-menu {
       top: 55px;
@@ -249,12 +261,14 @@ img {
 ------------------------------ */
 .site-sidebar {
   position: fixed;
-  top: 50px;
+  top: 0px;
   left: 0;
   bottom: 0;
   z-index: 1020;
   width: 230px;
   overflow: hidden;
+  box-shadow: 1px 0 10px 0 #848484;
+  background: #ffffff;
 
   &--dark,
   &--dark-popper {
@@ -287,11 +301,12 @@ img {
     width: 250px;
     height: 100%;
     padding-bottom: 15px;
-    overflow-y: scroll;
+    //overflow-y: scroll;
   }
   &__menu.el-menu {
     width: 230px;
     border-right: 0;
+    background: transparent;
   }
   &__menu-icon {
     width: 24px;
@@ -311,7 +326,7 @@ img {
 
   &__wrapper {
     position: relative;
-    padding-top: 50px;
+    padding-top: 60px;
     margin-left: 230px;
     min-height: 100%;
     background: $content--background-color;
@@ -322,12 +337,12 @@ img {
   > .el-tabs {
     > .el-tabs__header {
       position: fixed;
-      top: 50px;
+      top: 60px;
       left: 230px;
       right: 0;
       z-index: 930;
       padding: 0 55px 0 15px;
-      box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .12), 0 0 6px 0 rgba(0, 0, 0, .04);
+      box-shadow: 0 1px 2px 0 #E6E6E6;
       background-color: #fff;
       > .el-tabs__nav-wrap {
         margin-bottom: 0;
@@ -340,7 +355,7 @@ img {
       padding: 0 15px 15px;
       > .site-tabs__tools {
         position: fixed;
-        top: 50px;
+        top: 60px;
         right: 0;
         z-index: 931;
         height: 40px;

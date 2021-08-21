@@ -2,7 +2,7 @@
   <div class="mod-log">
     <el-form :inline="true" :model="dataForm" @keyup.enter.native="getDataList()">
       <el-form-item>
-        <el-input v-model="dataForm.key" placeholder="用户名／用户操作" clearable></el-input>
+        <el-input v-model="dataForm.username" placeholder="用户名／用户操作" clearable></el-input>
       </el-form-item>
       <el-form-item>
         <el-button @click="getDataList()">查询</el-button>
@@ -86,7 +86,7 @@
     data () {
       return {
         dataForm: {
-          key: ''
+          username: ''
         },
         dataList: [],
         pageIndex: 1,
@@ -109,7 +109,7 @@
           params: this.$http.adornParams({
             'page': this.pageIndex,
             'limit': this.pageSize,
-            'key': this.dataForm.key
+            'username': this.dataForm.username
           })
         }).then(({data}) => {
           if (data && data.code === 0) {

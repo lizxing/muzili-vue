@@ -7,7 +7,7 @@
 <!--          <p class="brand-info__intro">renren-fast-vue基于vue、element-ui构建开发，实现renren-fast后台管理前端功能，提供一套更优的前端解决方案。</p>-->
 <!--        </div>-->
         <div class="login-main">
-          <h3 class="login-title">权限管理系统</h3>
+          <h3 class="login-title">MUZILI 开发平台</h3>
           <el-form :model="dataForm" :rules="dataRule" ref="dataForm" @keyup.enter.native="dataFormSubmit()" status-icon>
             <el-form-item prop="userName">
               <el-input v-model="dataForm.userName" placeholder="帐号"></el-input>
@@ -93,7 +93,7 @@
       // 获取验证码
       getCaptcha () {
         this.dataForm.uuid = getUUID()
-        this.captchaPath = this.$http.adornUrl(`/captcha.jpg?uuid=${this.dataForm.uuid}`)
+        this.captchaPath = this.$http.adornUrl(`/sys/captcha.jpg?uuid=${this.dataForm.uuid}`)
       }
     }
   }

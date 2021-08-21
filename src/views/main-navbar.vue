@@ -1,13 +1,14 @@
 <template>
   <nav class="site-navbar" :class="'site-navbar--' + navbarLayoutType">
-    <div class="site-navbar__header">
-      <h1 class="site-navbar__brand" @click="$router.push({ name: 'home' })">
-        <a class="site-navbar__brand-lg" href="javascript:;">人人快速开发平台</a>
-        <a class="site-navbar__brand-mini" href="javascript:;">人人</a>
-      </h1>
-    </div>
+<!--    <div class="site-navbar__header">-->
+<!--      <h1 class="site-navbar__brand" @click="$router.push({ name: 'home' })">-->
+<!--        <a class="site-navbar__brand-lg" href="javascript:;">Muzili</a>-->
+<!--        <a class="site-navbar__brand-mini" href="javascript:;">Mzl</a>-->
+<!--      </h1>-->
+<!--    </div>-->
     <div class="site-navbar__body clearfix">
       <el-menu
+        style="border-bottom: none"
         class="site-navbar__menu"
         mode="horizontal">
         <el-menu-item class="site-navbar__switch" index="0" @click="sidebarFold = !sidebarFold">
@@ -15,26 +16,25 @@
         </el-menu-item>
       </el-menu>
       <el-menu
+        style="border-bottom: none"
         class="site-navbar__menu site-navbar__menu--right"
         mode="horizontal">
-        <el-menu-item index="1" @click="$router.push({ name: 'theme' })">
+        <el-menu-item index="1" @click="openDoc">
           <template slot="title">
-            <el-badge value="new">
-              <icon-svg name="shezhi" class="el-icon-setting"></icon-svg>
+            <el-badge>
+              <el-icon name="wendang" class="el-icon-document"></el-icon>
+              <i>接口文档</i>
             </el-badge>
           </template>
         </el-menu-item>
-<!--        <el-menu-item index="2">-->
-<!--          <el-badge value="hot">-->
-<!--            <a href="https://www.renren.io/" target="_blank">官方社区</a>-->
-<!--          </el-badge>-->
-<!--        </el-menu-item>-->
-<!--        <el-submenu index="3">-->
-<!--          <template slot="title">Git源码</template>-->
-<!--          <el-menu-item index="2-1"><a href="https://github.com/renrenio/renren-fast-vue" target="_blank">前端</a></el-menu-item>-->
-<!--          <el-menu-item index="2-2"><a href="https://gitee.com/renrenio/renren-fast" target="_blank">后台</a></el-menu-item>-->
-<!--          <el-menu-item index="2-3"><a href="https://gitee.com/renrenio/renren-generator" target="_blank">代码生成器</a></el-menu-item>-->
-<!--        </el-submenu>-->
+        <el-menu-item index="2" @click="$router.push({ name: 'theme' })">
+          <template slot="title">
+            <el-badge>
+              <el-icon name="shezhi" class="el-icon-view"></el-icon>
+              <i>样式设置</i>
+            </el-badge>
+          </template>
+        </el-menu-item>
         <el-menu-item class="site-navbar__avatar" index="3">
           <el-dropdown :show-timeout="0" placement="bottom">
             <span class="el-dropdown-link">
@@ -101,12 +101,17 @@
             method: 'post',
             data: this.$http.adornData()
           }).then(({data}) => {
-            if (data && data.code === 0) {
+            // if (data && data.code === 0) {
+            if (data) {
               clearLoginInfo()
               this.$router.push({ name: 'login' })
             }
           })
         }).catch(() => {})
+      },
+      // 打开文档
+      openDoc () {
+        window.open(window.SITE_CONFIG['baseUrl'] + '/swagger-ui.html', '_blank')
       }
     }
   }

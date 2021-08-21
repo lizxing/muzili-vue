@@ -21,7 +21,7 @@
         :key="item.name"
         :label="item.title"
         :name="item.name">
-        <el-card :body-style="siteContentViewHeight">
+        <el-card shadow="never" :body-style="siteContentViewHeight">
           <iframe
             v-if="item.type === 'iframe'"
             :src="item.iframeUrl"

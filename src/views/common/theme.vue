@@ -1,7 +1,7 @@
 <template>
   <el-form>
-    <h2>布局设置</h2>
-    <el-form-item label="导航条类型">
+    <h2>样式设置</h2>
+    <el-form-item label="导航条皮肤">
       <el-radio-group v-model="navbarLayoutType">
         <el-radio label="default" border>default</el-radio>
         <el-radio label="inverse" border>inverse</el-radio>
